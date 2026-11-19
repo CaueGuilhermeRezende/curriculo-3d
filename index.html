@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Currículo Caue 3D</title>
+<meta name="description" content="Currículo interativo de Cauê Guilherme: um escritório 3D para explorar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<canvas id="cena" aria-label="Escritório 3D interativo"></canvas>
+
+<!-- tela inicial -->
+<section id="inicio" class="inicio">
+  <div class="inicio-caixa">
+    <p class="selo">currículo interativo</p>
+    <h1>Currículo Caue 3D</h1>
+    <p class="sub">Cauê Guilherme · Contingência Operacional · Itaú Unibanco</p>
+    <div class="barra-carga" aria-hidden="true"><span id="carga"></span></div>
+    <p id="carga-txt" class="carga-txt">Carregando o escritório…</p>
+    <button id="entrar" class="btn-primario" disabled>Entrar no escritório</button>
+    <p class="dica-inicio">Arraste para olhar · role ou faça pinça para aproximar · clique nas salas</p>
+  </div>
+</section>
+
+<!-- topo: sala atual -->
+<header id="topo" class="topo oculto">
+  <span id="sala-num" class="sala-num">01</span>
+  <div>
+    <strong id="sala-nome">Recepção</strong>
+    <span id="sala-tema">Sobre mim</span>
+  </div>
+  <button id="btn-info" class="btn-claro">Ler o quadro</button>
+</header>
+
+<!-- navegação -->
+<nav id="nav" class="nav oculto" aria-label="Salas">
+  <button data-sala="planta">Planta</button>
+  <button data-sala="01"><b>01</b> Sobre mim</button>
+  <button data-sala="02"><b>02</b> Trajetória</button>
+  <button data-sala="03"><b>03</b> Formação</button>
+  <button data-sala="04"><b>04</b> Futuro</button>
+  <button id="btn-tour" class="tour">▶ Tour</button>
+</nav>
+
+<!-- painel com o texto da sala -->
+<aside id="painel" class="painel" aria-hidden="true">
+  <button class="fechar" data-fechar="painel" aria-label="Fechar">×</button>
+  <div id="painel-conteudo"></div>
+</aside>
+
+<!-- contato -->
+<button id="btn-contato" class="btn-contato oculto">Contato</button>
+<aside id="contato" class="contato" aria-hidden="true">
+  <button class="fechar" data-fechar="contato" aria-label="Fechar">×</button>
+  <h2>Vamos conversar?</h2>
+  <p>Cauê Guilherme · São Caetano do Sul (SP)</p>
+  <a href="mailto:caueguilherme04@gmail.com">caueguilherme04@gmail.com</a>
+  <a href="https://wa.me/5511972218115" target="_blank" rel="noopener">WhatsApp · +55 11 97221-8115</a>
+  <a href="https://linkedin.com/in/cauerezende" target="_blank" rel="noopener">linkedin.com/in/cauerezende</a>
+</aside>
+
+<div id="fade" class="fade"></div>
+<p id="dica" class="dica oculto">Clique numa sala ou num quadro</p>
+<noscript><p class="erro">Ative o JavaScript para ver o escritório 3D.</p></noscript>
+<script type="module" src="app.js"></script>
+</body>
+</html>
